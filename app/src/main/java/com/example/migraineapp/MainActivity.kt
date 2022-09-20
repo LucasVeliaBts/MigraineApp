@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
             val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
                 // Display Selected date in TextView
-                textView.setText("" + dayOfMonth + " " + month + ", " + year)
+                textView.setText("" + dayOfMonth + ", " + (monthOfYear+1) + ", " + year)
             }, year, month, day)
             dpd.show()
 
