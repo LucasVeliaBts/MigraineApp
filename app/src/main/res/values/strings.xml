@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">MigraineApp</string>
+    <string name="selected_item">yes</string>
+    <string-array name="Intensites">
+        <item>Modérée</item>
+        <item>Intense</item>
+        <item>Insupportable</item>
+    </string-array>
+    <string-array name="Traitements">
+        <item>AINSS</item>
+        <item>Triptan</item>
+        <item>Traitement de fond</item>
+    </string-array>
 </resources>
