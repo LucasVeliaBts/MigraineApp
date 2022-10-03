@@ -1,14 +1,37 @@
 <resources>
     <string name="app_name">MigraineApp</string>
     <string name="selected_item">yes</string>
-    <string-array name="Intensites">
+    <string name="nouvelle_crise">Nouvelle Crise</string>
+    <string name="AINS">AINS</string>
+    <string name="traitements_de_fond">traitement de fond</string>
+    <string name="triptans">triptans</string>
+    <string-array name="Intensities">
         <item>Modérée</item>
         <item>Intense</item>
         <item>Insupportable</item>
     </string-array>
-    <string-array name="Traitements">
-        <item>AINSS</item>
-        <item>Triptan</item>
-        <item>Traitement de fond</item>
+    <string-array name="Traitement_de_fond">
+        <item>Aucun traitement de fond</item>
+        <item>Oxétorone</item>
+        <item>Indoramine</item>
+        <item>Flunarizine</item>
+        <item>Amitriptyline</item>
+    </string-array>
+    <string-array name="AINS">
+        <item>Aucun AINS</item>
+        <item>Flurbiprofène</item>
+        <item>Ketoprofene</item>
+        <item>Ibuprofene</item>
+        <item>Naproxène</item>
+    </string-array>
+    <string-array name="Triptans">
+        <item>Aucun triptans</item>
+        <item>Sumatriptan</item>
+        <item>Zolmitriptan</item>
+        <item>Naratriptan</item>
+        <item>Elétriptan</item>
+        <item>Almotriptan</item>
+        <item>Rizatriptan</item>
+        <item>Frovatriptan</item>
     </string-array>
 </resources>

@@ -11,7 +11,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val intensites = resources.getStringArray(R.array.Intensites)
+        val intensities = resources.getStringArray(R.array.Intensities)
+
+        val AINS = resources.getStringArray(R.array.AINS)
+        val triptans = resources.getStringArray(R.array.Triptans)
+        val traitement_de_fond = resources.getStringArray(R.array.Traitement_de_fond)
         val mPickTimeBtn = findViewById<Button>(R.id.pickDateBtn)
         val textView     = findViewById<TextView>(R.id.dateTv)
 
@@ -30,16 +34,13 @@ class MainActivity : AppCompatActivity() {
 
 
         }
-
-
-        // access the spinner
-        val spinner = findViewById<Spinner>(R.id.spinner)
-        if (spinner != null) {
+        val spinnerIntensities = findViewById<Spinner>(R.id.spinner_intensities)
+        if (spinnerIntensities != null) {
             val adapter = ArrayAdapter(this,
-                android.R.layout.simple_spinner_item, intensites)
-            spinner.adapter = adapter
+                android.R.layout.simple_spinner_item, intensities)
+            spinnerIntensities.adapter = adapter
 
-            spinner.onItemSelectedListener = object :
+            spinnerIntensities.onItemSelectedListener = object :
                 AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>,
                                             view: View, position: Int, id: Long) {
@@ -52,14 +53,51 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
-        val traitements = resources.getStringArray(R.array.Traitements)
-        val spinner2 = findViewById<Spinner>(R.id.spinner2)
-        if (spinner2 != null) {
+        val spinnerAINS = findViewById<Spinner>(R.id.spinner_AINS)
+        if (spinnerAINS != null) {
             val adapter = ArrayAdapter(this,
-                android.R.layout.simple_spinner_item, traitements)
-            spinner2.adapter = adapter
+                android.R.layout.simple_spinner_item, AINS )
+            spinnerAINS.adapter = adapter
 
-            spinner2.onItemSelectedListener = object :
+            spinnerAINS.onItemSelectedListener = object :
+                AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(parent: AdapterView<*>,
+                                            view: View, position: Int, id: Long) {
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+                    TODO("Not yet implemented")
+                }
+
+
+            }
+        }
+        val spinnerTriptans = findViewById<Spinner>(R.id.spinner_triptans)
+        if (spinnerTriptans != null) {
+            val adapter = ArrayAdapter(this,
+                android.R.layout.simple_spinner_item, triptans)
+            spinnerTriptans.adapter = adapter
+
+            spinnerTriptans.onItemSelectedListener = object :
+                AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(parent: AdapterView<*>,
+                                            view: View, position: Int, id: Long) {
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+                    TODO("Not yet implemented")
+                }
+
+
+            }
+        }
+        val spinnertraitementdefond = findViewById<Spinner>(R.id.spinner_traitement_de_fond)
+        if (spinnertraitementdefond != null) {
+            val adapter = ArrayAdapter(this,
+                android.R.layout.simple_spinner_item, traitement_de_fond)
+            spinnertraitementdefond.adapter = adapter
+
+            spinnertraitementdefond.onItemSelectedListener = object :
                 AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>,
                                             view: View, position: Int, id: Long) {
