@@ -7,7 +7,6 @@
     tools:context=".MainActivity">
 
 
-
     <EditText
         android:id="@+id/new_crise"
         android:layout_width="267dp"
@@ -23,27 +22,27 @@
 
     <Button
         android:id="@+id/pickDateBtn"
-        android:layout_width="254dp"
-        android:layout_height="97dp"
+        android:layout_width="204dp"
+        android:layout_height="85dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="4dp"
         android:text="sélectionner une date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/dateTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="16dp"
         android:text="Date"
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/pickDateBtn"
-        app:layout_constraintHorizontal_bias="0.225"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/new_crise" />
-
 
     <TextView
         android:id="@+id/txtView_intensities"
@@ -120,14 +119,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner_traitement_de_fond" />
 
-    <TextView
-        android:id="@+id/observations"
-        android:layout_width="409dp"
-        android:layout_height="71dp"
-        android:layout_marginTop="20dp"
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="413dp"
+        android:layout_height="59dp"
+        android:ems="10"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/buttonEnvoyer"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:text="Envoyer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
