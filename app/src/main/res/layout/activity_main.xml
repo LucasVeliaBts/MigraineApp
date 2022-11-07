@@ -8,7 +8,7 @@
 
 
     <EditText
-        android:id="@+id/new_crise"
+        android:id="@+id/Confirmation"
         android:layout_width="267dp"
         android:layout_height="52dp"
         android:layout_marginStart="16dp"
@@ -42,7 +42,7 @@
         app:layout_constraintEnd_toStartOf="@+id/pickDateBtn"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/new_crise" />
+        app:layout_constraintTop_toBottomOf="@+id/Confirmation" />
 
     <TextView
         android:id="@+id/txtView_intensities"
