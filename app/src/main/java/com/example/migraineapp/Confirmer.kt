@@ -16,12 +16,10 @@ class Confirmer : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_confirmer)
 
-
-
         bouttonRetour = findViewById(R.id.buttonRetour)
-        val monIntentRetour : Intent =  Intent(this,MainActivity::class.java)
+        val retourIntent : Intent =  Intent(this,MainActivity::class.java)
         bouttonRetour.setOnClickListener {
-            startActivity(monIntentRetour)
+            startActivity(retourIntent)
         }
     }
 }

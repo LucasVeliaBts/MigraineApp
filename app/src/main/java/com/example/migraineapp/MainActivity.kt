@@ -9,8 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.migraineapp.databinding.ActivityMainBinding
 import java.util.*
 
-const val EXTRA_MESSAGE = "com.example.app.MESSAGE"
-
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     lateinit var boutonEnvoyer: Button
@@ -21,24 +19,25 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val intensities = resources.getStringArray(R.array.Intensities)
-        val aINS = resources.getStringArray(R.array.AINS)
+        val aINSs = resources.getStringArray(R.array.AINS)
         val triptans = resources.getStringArray(R.array.Triptans)
-        val traitementDeFond = resources.getStringArray(R.array.Traitement_de_fond)
+        val traitementDeFonds = resources.getStringArray(R.array.Traitement_de_fond)
         val mPickTimeBtn = findViewById<Button>(R.id.pickDateBtn)
         val textView = findViewById<TextView>(R.id.dateTv)
-        val c = Calendar.getInstance()
-        val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)
-        val day = c.get(Calendar.DAY_OF_MONTH)
+        val calendrier = Calendar.getInstance()
+        val year = calendrier.get(Calendar.YEAR)
+        val month = calendrier.get(Calendar.MONTH)
+        val day = calendrier.get(Calendar.DAY_OF_MONTH)
         val spinnerIntensities = findViewById<Spinner>(R.id.spinner_intensities)
         val spinnerAINS = findViewById<Spinner>(R.id.spinner_AINS)
         val spinnerTriptans = findViewById<Spinner>(R.id.spinner_triptans)
-        val spinnertraitementdefond = findViewById<Spinner>(R.id.spinner_traitement_de_fond)
-        var IntensiteSelection = spinnerIntensities.getSelectedItem()
-        var AINSSelection = spinnerAINS.getSelectedItem()
-        var TriptansSelection = spinnerTriptans.getSelectedItem()
-        var TraitementdefondSelection = spinnertraitementdefond.getSelectedItem()
+        val spinnerTraitementDeFond = findViewById<Spinner>(R.id.spinner_traitement_de_fond)
+        var intensiteSelection = spinnerIntensities.getSelectedItem().toString()
+        var aINSSelection = spinnerAINS.getSelectedItem().toString()
+        var triptansSelection = spinnerTriptans.getSelectedItem().toString()
+        var traitementDeFondSelection = spinnerTraitementDeFond.getSelectedItem().toString()
         boutonEnvoyer = findViewById(R.id.buttonEnvoyer)
+
 
         mPickTimeBtn.setOnClickListener {
 
@@ -63,7 +62,7 @@ class MainActivity : AppCompatActivity() {
                 android.R.layout.simple_spinner_item, intensities
             )
             spinnerIntensities.adapter = adapter
-            IntensiteSelection = adapter
+            intensiteSelection = spinnerIntensities.getSelectedItem().toString()
 
             spinnerIntensities.onItemSelectedListener = object :
                 AdapterView.OnItemSelectedListener {
@@ -83,10 +82,10 @@ class MainActivity : AppCompatActivity() {
         if (spinnerAINS != null) {
             val adapter = ArrayAdapter(
                 this,
-                android.R.layout.simple_spinner_item, aINS
+                android.R.layout.simple_spinner_item, aINSs
             )
             spinnerAINS.adapter = adapter
-            AINSSelection = adapter
+            aINSSelection = spinnerAINS.selectedItem.toString()
 
             spinnerAINS.onItemSelectedListener = object :
                 AdapterView.OnItemSelectedListener {
@@ -110,7 +109,7 @@ class MainActivity : AppCompatActivity() {
                 android.R.layout.simple_spinner_item, triptans
             )
             spinnerTriptans.adapter = adapter
-            TriptansSelection = adapter
+            triptansSelection = spinnerTriptans.selectedItem.toString()
 
             spinnerTriptans.onItemSelectedListener = object :
                 AdapterView.OnItemSelectedListener {
@@ -129,21 +128,21 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        if (spinnertraitementdefond != null) {
+        if (spinnerTraitementDeFond != null) {
             val adapter = ArrayAdapter(
                 this,
-                android.R.layout.simple_spinner_item, traitementDeFond
+                android.R.layout.simple_spinner_item, traitementDeFonds
             )
-            spinnertraitementdefond.adapter = adapter
-            TraitementdefondSelection = adapter
-
-            spinnertraitementdefond.onItemSelectedListener = object :
+            spinnerTraitementDeFond.adapter = adapter
+            traitementDeFondSelection = spinnerTraitementDeFond.selectedItem.toString()
+            spinnerTraitementDeFond.onItemSelectedListener = object :
                 AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>,
                     view: View, position: Int, id: Long
 
                 ) {
+
                 }
 
                 override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -151,15 +150,13 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-        val monIntent: Intent = Intent(this, Confirmer::class.java)
-        
-        boutonEnvoyer.setOnClickListener {
-            IntensiteSelection
-            AINSSelection
-            TriptansSelection
-            TraitementdefondSelection
-            dpd
-            startActivity(monIntent)
+        val envoyerIntent: Intent = Intent(this, Confirmer::class.java)
+        boutonEnvoyer.setOnClickListener{
+          //  envoyerIntent.putExtra("intensite", intensiteSelection)
+           // envoyerIntent.putExtra("aINS", aINSSelection)
+           // envoyerIntent.putExtra("triptan", triptansSelection)
+            //envoyerIntent.putExtra("traitement de fond", traitementDeFondSelection)
+            startActivity(envoyerIntent)
         }
     }
 }

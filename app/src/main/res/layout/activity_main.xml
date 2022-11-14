@@ -8,7 +8,7 @@
 
 
     <EditText
-        android:id="@+id/Confirmation"
+        android:id="@+id/NomCrise"
         android:layout_width="267dp"
         android:layout_height="52dp"
         android:layout_marginStart="16dp"
@@ -42,7 +42,7 @@
         app:layout_constraintEnd_toStartOf="@+id/pickDateBtn"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Confirmation" />
+        app:layout_constraintTop_toBottomOf="@+id/NomCrise" />
 
     <TextView
         android:id="@+id/txtView_intensities"
@@ -120,7 +120,7 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner_traitement_de_fond" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/editTextObservations"
         android:layout_width="413dp"
         android:layout_height="59dp"
         android:ems="10"
@@ -138,7 +138,7 @@
         android:layout_marginTop="16dp"
         android:text="Envoyer"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextObservations" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
