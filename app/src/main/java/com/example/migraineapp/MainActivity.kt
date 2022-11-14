@@ -1,6 +1,7 @@
 package com.example.migraineapp
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -8,10 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.migraineapp.databinding.ActivityMainBinding
 import java.util.*
 
+const val EXTRA_MESSAGE = "com.example.app.MESSAGE"
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-
+    lateinit var boutonEnvoyer: Button
+    lateinit var dpd: DatePickerDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -35,10 +38,11 @@ class MainActivity : AppCompatActivity() {
         var AINSSelection = spinnerAINS.getSelectedItem()
         var TriptansSelection = spinnerTriptans.getSelectedItem()
         var TraitementdefondSelection = spinnertraitementdefond.getSelectedItem()
+        boutonEnvoyer = findViewById(R.id.buttonEnvoyer)
 
         mPickTimeBtn.setOnClickListener {
 
-            val dpd = DatePickerDialog(
+            dpd = DatePickerDialog(
                 this,
                 DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
                     // Display Selected date in TextView
@@ -89,8 +93,7 @@ class MainActivity : AppCompatActivity() {
                 override fun onItemSelected(
                     parent: AdapterView<*>,
                     view: View, position: Int, id: Long
-                )
-                {
+                ) {
                 }
 
                 override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -140,8 +143,7 @@ class MainActivity : AppCompatActivity() {
                     parent: AdapterView<*>,
                     view: View, position: Int, id: Long
 
-                )
-                {
+                ) {
                 }
 
                 override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -149,7 +151,16 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
+        val monIntent: Intent = Intent(this, Confirmer::class.java)
+        
+        boutonEnvoyer.setOnClickListener {
+            IntensiteSelection
+            AINSSelection
+            TriptansSelection
+            TraitementdefondSelection
+            dpd
+            startActivity(monIntent)
+        }
     }
 }
 
