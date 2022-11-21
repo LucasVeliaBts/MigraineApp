@@ -14,6 +14,8 @@ const val EXTRA_AINS = "com.example.migraineapp.AINS";
 const val EXTRA_TRIPTANS = "com.example.migraineapp.TRIPTANS";
 const val EXTRA_TRAITEMENTDEFONDS = "com.example.migraineapp.TRAITEMENTDEFONDS";
 const val EXTRA_OBSERVATIONS = "com.example.migraineapp.OBSERVATIONS";
+const val EXTRA_DATE = "com.example.migraineapp.DATE";
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -30,8 +32,8 @@ class MainActivity : AppCompatActivity() {
         val traitementDeFonds = resources.getStringArray(R.array.Traitement_de_fond)
         val observations = findViewById<EditText>(R.id.editTextObservations)
 
-        val mPickTimeBtn = findViewById<Button>(R.id.pickDateBtn)
-        val textView = findViewById<TextView>(R.id.dateTv)
+        val date = findViewById<Button>(R.id.pickDateBtn)
+        val textView = findViewById<TextView>(R.id.date)
         val calendrier = Calendar.getInstance()
         val year = calendrier.get(Calendar.YEAR)
         val month = calendrier.get(Calendar.MONTH)
@@ -45,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         boutonEnvoyer = findViewById(R.id.buttonEnvoyer)
 
 
-        mPickTimeBtn.setOnClickListener {
+        date.setOnClickListener {
 
             dpd = DatePickerDialog(
                 this,
@@ -161,6 +163,7 @@ class MainActivity : AppCompatActivity() {
             extras.putString(EXTRA_TRIPTANS,spinnerTriptans.getSelectedItem().toString())
             extras.putString(EXTRA_TRAITEMENTDEFONDS,spinnerTraitementDeFond.getSelectedItem().toString())
             extras.putString(EXTRA_OBSERVATIONS,observation.toString())
+            extras.putString(EXTRA_DATE,date.text.toString())
             envoyerIntent.putExtras(extras)
             startActivity(envoyerIntent)
         }
