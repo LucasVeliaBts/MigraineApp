@@ -6,6 +6,99 @@
     android:layout_height="match_parent"
     tools:context=".Confirmer">
 
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="209dp"
+        android:layout_height="29dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        tools:layout_editor_absoluteY="279dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="209dp"
+        android:layout_height="29dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/txtView_intensities6"
+        tools:layout_editor_absoluteY="219dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="210dp"
+        android:layout_height="32dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/txtView_intensities4"
+        tools:layout_editor_absoluteY="176dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/txtView_intensities5"
+        android:layout_width="411dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="30dp"
+        android:text="Type de traitement:"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtView_intensities"></TextView>
+
+    <TextView
+        android:id="@+id/txtView_intensities6"
+        android:layout_width="177dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="10dp"
+        android:text="Triptans:"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtView_intensities4"></TextView>
+
+    <TextView
+        android:id="@+id/txtView_intensities4"
+        android:layout_width="177dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="10dp"
+        android:text="AINS :"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtView_intensities3"></TextView>
+
+    <TextView
+        android:id="@+id/txtView_intensities3"
+        android:layout_width="177dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:text="Traitement de fond:"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtView_intensities5"></TextView>
+
+    <TextView
+        android:id="@+id/txtView_intensities"
+        android:layout_width="411dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="8dp"
+        android:text="Intensité:"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
     <Button
         android:id="@+id/buttonRetour"
         android:layout_width="wrap_content"
@@ -17,4 +110,26 @@
         app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="177dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="30dp"
+        android:text="Observations:"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtView_intensities6" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="208dp"
+        android:layout_height="36dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/txtView_intensities3"
+        tools:layout_editor_absoluteY="126dp"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

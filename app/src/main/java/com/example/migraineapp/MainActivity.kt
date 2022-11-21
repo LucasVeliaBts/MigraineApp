@@ -9,6 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.migraineapp.databinding.ActivityMainBinding
 import java.util.*
 
+const val EXTRA_INTENSITE = "com.example.migraineapp.INTENSITE";
+const val EXTRA_AINS = "com.example.migraineapp.AINS";
+const val EXTRA_TRIPTANS = "com.example.migraineapp.TRIPTANS";
+const val EXTRA_TRAITEMENTDEFONDS = "com.example.migraineapp.TRAITEMENTDEFONDS";
+const val EXTRA_OBSERVATIONS = "com.example.migraineapp.OBSERVATIONS";
+
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     lateinit var boutonEnvoyer: Button
@@ -22,16 +28,20 @@ class MainActivity : AppCompatActivity() {
         val aINSs = resources.getStringArray(R.array.AINS)
         val triptans = resources.getStringArray(R.array.Triptans)
         val traitementDeFonds = resources.getStringArray(R.array.Traitement_de_fond)
+        val observations = findViewById<EditText>(R.id.editTextObservations)
+
         val mPickTimeBtn = findViewById<Button>(R.id.pickDateBtn)
         val textView = findViewById<TextView>(R.id.dateTv)
         val calendrier = Calendar.getInstance()
         val year = calendrier.get(Calendar.YEAR)
         val month = calendrier.get(Calendar.MONTH)
         val day = calendrier.get(Calendar.DAY_OF_MONTH)
+
         val spinnerIntensities = findViewById<Spinner>(R.id.spinner_intensities)
         val spinnerAINS = findViewById<Spinner>(R.id.spinner_AINS)
         val spinnerTriptans = findViewById<Spinner>(R.id.spinner_triptans)
         val spinnerTraitementDeFond = findViewById<Spinner>(R.id.spinner_traitement_de_fond)
+
         boutonEnvoyer = findViewById(R.id.buttonEnvoyer)
 
 
@@ -144,8 +154,15 @@ class MainActivity : AppCompatActivity() {
         }
         val envoyerIntent: Intent = Intent(this, Confirmer::class.java)
         fun envoyermessage(): Unit {
+            val extras = Bundle()
+            val observation = observations.text
+            extras.putString(EXTRA_INTENSITE,spinnerIntensities.getSelectedItem().toString())
+            extras.putString(EXTRA_AINS,spinnerAINS.getSelectedItem().toString())
+            extras.putString(EXTRA_TRIPTANS,spinnerTriptans.getSelectedItem().toString())
+            extras.putString(EXTRA_TRAITEMENTDEFONDS,spinnerTraitementDeFond.getSelectedItem().toString())
+            extras.putString(EXTRA_OBSERVATIONS,observation.toString())
+            envoyerIntent.putExtras(extras)
             startActivity(envoyerIntent)
-
         }
         boutonEnvoyer.setOnClickListener{
             envoyermessage()
