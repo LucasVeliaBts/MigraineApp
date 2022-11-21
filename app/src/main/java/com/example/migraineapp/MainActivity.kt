@@ -32,10 +32,6 @@ class MainActivity : AppCompatActivity() {
         val spinnerAINS = findViewById<Spinner>(R.id.spinner_AINS)
         val spinnerTriptans = findViewById<Spinner>(R.id.spinner_triptans)
         val spinnerTraitementDeFond = findViewById<Spinner>(R.id.spinner_traitement_de_fond)
-        var intensiteSelection = spinnerIntensities.getSelectedItem().toString()
-        var aINSSelection = spinnerAINS.getSelectedItem().toString()
-        var triptansSelection = spinnerTriptans.getSelectedItem().toString()
-        var traitementDeFondSelection = spinnerTraitementDeFond.getSelectedItem().toString()
         boutonEnvoyer = findViewById(R.id.buttonEnvoyer)
 
 
@@ -62,7 +58,6 @@ class MainActivity : AppCompatActivity() {
                 android.R.layout.simple_spinner_item, intensities
             )
             spinnerIntensities.adapter = adapter
-            intensiteSelection = spinnerIntensities.getSelectedItem().toString()
 
             spinnerIntensities.onItemSelectedListener = object :
                 AdapterView.OnItemSelectedListener {
@@ -85,7 +80,6 @@ class MainActivity : AppCompatActivity() {
                 android.R.layout.simple_spinner_item, aINSs
             )
             spinnerAINS.adapter = adapter
-            aINSSelection = spinnerAINS.selectedItem.toString()
 
             spinnerAINS.onItemSelectedListener = object :
                 AdapterView.OnItemSelectedListener {
@@ -109,7 +103,6 @@ class MainActivity : AppCompatActivity() {
                 android.R.layout.simple_spinner_item, triptans
             )
             spinnerTriptans.adapter = adapter
-            triptansSelection = spinnerTriptans.selectedItem.toString()
 
             spinnerTriptans.onItemSelectedListener = object :
                 AdapterView.OnItemSelectedListener {
@@ -134,7 +127,6 @@ class MainActivity : AppCompatActivity() {
                 android.R.layout.simple_spinner_item, traitementDeFonds
             )
             spinnerTraitementDeFond.adapter = adapter
-            traitementDeFondSelection = spinnerTraitementDeFond.selectedItem.toString()
             spinnerTraitementDeFond.onItemSelectedListener = object :
                 AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
@@ -151,12 +143,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
         val envoyerIntent: Intent = Intent(this, Confirmer::class.java)
-        boutonEnvoyer.setOnClickListener{
-          //  envoyerIntent.putExtra("intensite", intensiteSelection)
-           // envoyerIntent.putExtra("aINS", aINSSelection)
-           // envoyerIntent.putExtra("triptan", triptansSelection)
-            //envoyerIntent.putExtra("traitement de fond", traitementDeFondSelection)
+        fun envoyermessage(): Unit {
             startActivity(envoyerIntent)
+
+        }
+        boutonEnvoyer.setOnClickListener{
+            envoyermessage()
         }
     }
 }
