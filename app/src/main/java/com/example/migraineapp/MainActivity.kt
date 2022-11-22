@@ -32,8 +32,8 @@ class MainActivity : AppCompatActivity() {
         val traitementDeFonds = resources.getStringArray(R.array.Traitement_de_fond)
         val observations = findViewById<EditText>(R.id.editTextObservations)
 
-        val date = findViewById<Button>(R.id.pickDateBtn)
-        val textView = findViewById<TextView>(R.id.date)
+        val dateButton = findViewById<Button>(R.id.pickDateBtn)
+        val date = findViewById<TextView>(R.id.date)
         val calendrier = Calendar.getInstance()
         val year = calendrier.get(Calendar.YEAR)
         val month = calendrier.get(Calendar.MONTH)
@@ -47,13 +47,13 @@ class MainActivity : AppCompatActivity() {
         boutonEnvoyer = findViewById(R.id.buttonEnvoyer)
 
 
-        date.setOnClickListener {
+        dateButton.setOnClickListener {
 
             dpd = DatePickerDialog(
                 this,
                 DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
                     // Display Selected date in TextView
-                    textView.setText("" + dayOfMonth + ", " + (monthOfYear + 1) + ", " + year)
+                    date.setText("" + dayOfMonth + ", " + (monthOfYear + 1) + ", " + year)
                 },
                 year,
                 month,
@@ -154,21 +154,20 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-        val envoyerIntent: Intent = Intent(this, Confirmer::class.java)
-        fun envoyermessage(): Unit {
-            val extras = Bundle()
+        fun callActivity() {
             val observation = observations.text
-            extras.putString(EXTRA_INTENSITE,spinnerIntensities.getSelectedItem().toString())
-            extras.putString(EXTRA_AINS,spinnerAINS.getSelectedItem().toString())
-            extras.putString(EXTRA_TRIPTANS,spinnerTriptans.getSelectedItem().toString())
-            extras.putString(EXTRA_TRAITEMENTDEFONDS,spinnerTraitementDeFond.getSelectedItem().toString())
-            extras.putString(EXTRA_OBSERVATIONS,observation.toString())
-            extras.putString(EXTRA_DATE,date.text.toString())
-            envoyerIntent.putExtras(extras)
-            startActivity(envoyerIntent)
+            val envoyerIntent: Intent = Intent(this, Confirmer::class.java).also {
+                it.putExtra("EXTRA_OBSERVATIONS",observation.toString())
+                it.putExtra("EXTRA_INTENSITE",spinnerIntensities.getSelectedItem().toString())
+                it.putExtra("EXTRA_AINS",spinnerAINS.getSelectedItem().toString())
+                it.putExtra("EXTRA_TRIPTANS",spinnerTriptans.getSelectedItem().toString())
+                it.putExtra("EXTRA_TRAITEMENTDEFONDS",spinnerTraitementDeFond.getSelectedItem().toString())
+                it.putExtra("EXTRA_DATE",date.text.toString())
+                startActivity(it)
+            }
         }
         boutonEnvoyer.setOnClickListener{
-            envoyermessage()
+            callActivity()
         }
     }
 }

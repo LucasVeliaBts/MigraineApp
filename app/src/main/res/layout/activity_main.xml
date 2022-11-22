@@ -48,10 +48,11 @@
         android:id="@+id/txtViewIntensite"
         android:layout_width="411dp"
         android:layout_height="39dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="8dp"
         android:text="Intensité:"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pickDateBtn" />
 
@@ -137,8 +138,10 @@
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:text="Envoyer"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextObservations" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextObservations"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
