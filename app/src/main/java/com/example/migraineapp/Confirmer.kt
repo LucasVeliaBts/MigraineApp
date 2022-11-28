@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
-
 class Confirmer : AppCompatActivity() {
 
     lateinit var bouttonModifier : Button
@@ -16,7 +15,7 @@ class Confirmer : AppCompatActivity() {
         val selectionDate = intent.getStringExtra("EXTRA_DATE")
         val selectionIntensite = intent.getStringExtra("EXTRA_INTENSITE")
         val selectionAINS = intent.getStringExtra("EXTRA_AINS")
-        val selectionTriptan = intent.getStringExtra("EXTRA_TRIPTANS")
+        val selectionTriptans = intent.getStringExtra("EXTRA_TRIPTANS")
         val selectionTraitementDeFonds = intent.getStringExtra("EXTRA_TRAITEMENTDEFONDS")
         val selectionObservation = intent.getStringExtra("EXTRA_OBSERVATIONS")
 
@@ -34,12 +33,13 @@ class Confirmer : AppCompatActivity() {
         }
 
         val triptans = findViewById<TextView>(R.id.textViewTriptansSelection).apply {
-            text = selectionTriptan
+            text = selectionTriptans
         }
 
-        val traitementDeFonds = findViewById<TextView>(R.id.textViewTraitementDeFondSelection).apply {
-            text = selectionTraitementDeFonds
-        }
+        val traitementDeFonds =
+            findViewById<TextView>(R.id.textViewTraitementDeFondSelection).apply {
+                text = selectionTraitementDeFonds
+            }
 
         val observation = findViewById<TextView>(R.id.textViewObservationsSelection).apply {
             text = selectionObservation
@@ -47,9 +47,27 @@ class Confirmer : AppCompatActivity() {
 
 
         bouttonModifier = findViewById(R.id.buttonModifier)
-        val retourIntent : Intent =  Intent(this,MainActivity::class.java)
+
+       /* fun callActivity() {
+            val retourIntent: Intent = Intent(this, MainActivity::class.java).also {
+                it.putExtra("EXTRA_OBSERVATIONS", selectionObservation)
+                it.putExtra("EXTRA_INTENSITE", selectionIntensite)
+                it.putExtra("EXTRA_AINS", selectionAINS)
+                it.putExtra("EXTRA_TRIPTANS", selectionTriptans)
+                it.putExtra("EXTRA_TRAITEMENTDEFONDS", selectionTraitementDeFonds)
+                startActivity(it)
+            }
+        }*/
+       fun modifier(){
+
+           onBackPressed()
+
+       }
         bouttonModifier.setOnClickListener {
-            startActivity(retourIntent)
+                   // callActivity()
+            modifier()
         }
+
+
     }
 }

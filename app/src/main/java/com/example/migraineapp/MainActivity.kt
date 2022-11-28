@@ -9,12 +9,19 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.migraineapp.databinding.ActivityMainBinding
 import java.util.*
 
+
 const val EXTRA_INTENSITE = "com.example.migraineapp.INTENSITE";
 const val EXTRA_AINS = "com.example.migraineapp.AINS";
 const val EXTRA_TRIPTANS = "com.example.migraineapp.TRIPTANS";
 const val EXTRA_TRAITEMENTDEFONDS = "com.example.migraineapp.TRAITEMENTDEFONDS";
 const val EXTRA_OBSERVATIONS = "com.example.migraineapp.OBSERVATIONS";
 const val EXTRA_DATE = "com.example.migraineapp.DATE";
+
+const val EXTRA_INTENSITE_NB = "com.example.migraineapp.INTENSITE_NB";
+const val EXTRA_AINS_NB = "com.example.migraineapp.AINS_NB";
+const val EXTRA_TRIPTANS_NB = "com.example.migraineapp.TRIPTANS_NB";
+const val EXTRA_TRAITEMENTDEFONDS_NB = "com.example.migraineapp.TRAITEMENTDEFONDS_NB";
+const val EXTRA_OBSERVATIONS_NB = "com.example.migraineapp.OBSERVATIONS_NB";
 
 
 class MainActivity : AppCompatActivity() {
@@ -46,6 +53,13 @@ class MainActivity : AppCompatActivity() {
 
         boutonEnvoyer = findViewById(R.id.buttonEnvoyer)
 
+        val selectionIntensite = intent.getStringExtra("EXTRA_INTENSITE")
+        val selectionAINS = intent.getStringExtra("EXTRA_AINS")
+        val selectionTriptans = intent.getStringExtra("EXTRA_TRIPTANS")
+        val selectionTraitementDeFonds = intent.getStringExtra("EXTRA_TRAITEMENTDEFONDS")
+        val selectionObservation = intent.getStringExtra("EXTRA_OBSERVATIONS")
+
+
 
         dateButton.setOnClickListener {
 
@@ -63,6 +77,7 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+
 
         if (spinnerIntensities != null) {
             val adapter = ArrayAdapter(
@@ -85,7 +100,23 @@ class MainActivity : AppCompatActivity() {
 
 
             }
+
+            //s'applique si le bouton modifier de l'activité confirmer a été cliqué
+            if (selectionIntensite != null) {
+                //the value you want the position for
+                val adapter = ArrayAdapter(
+                    this,
+                    android.R.layout.simple_spinner_item, intensities
+                )
+
+                spinnerIntensities.setSelection(adapter.getPosition(selectionIntensite))
+
+
+
+            }
+
         }
+
         if (spinnerAINS != null) {
             val adapter = ArrayAdapter(
                 this,
@@ -98,7 +129,8 @@ class MainActivity : AppCompatActivity() {
                 override fun onItemSelected(
                     parent: AdapterView<*>,
                     view: View, position: Int, id: Long
-                ) {
+                )
+                {
                 }
 
                 override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -107,6 +139,19 @@ class MainActivity : AppCompatActivity() {
 
 
             }
+        }
+
+        //s'applique si le bouton modifier de l'activité confirmer a été cliqué
+        if (selectionAINS != null) {
+            val adapter = ArrayAdapter(
+                this,
+                android.R.layout.simple_spinner_item, aINSs
+            )
+
+            spinnerAINS.setSelection(adapter.getPosition(selectionAINS))
+
+
+
         }
 
         if (spinnerTriptans != null) {
@@ -128,10 +173,22 @@ class MainActivity : AppCompatActivity() {
                 override fun onNothingSelected(p0: AdapterView<*>?) {
                     TODO("Not yet implemented")
                 }
-
-
             }
         }
+        //s'applique si le bouton modifier de l'activité confirmer a été cliqué
+        if (selectionTriptans != null) {
+            val adapter = ArrayAdapter(
+                this,
+                android.R.layout.simple_spinner_item, triptans
+            )
+
+            spinnerTriptans.setSelection(adapter.getPosition(selectionTriptans))
+
+
+
+        }
+
+
 
         if (spinnerTraitementDeFond != null) {
             val adapter = ArrayAdapter(
@@ -154,6 +211,27 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+        //s'applique si le bouton modifier de l'activité confirmer a été cliqué
+        if (selectionTraitementDeFonds != null) {
+            val adapter = ArrayAdapter(
+                this,
+                android.R.layout.simple_spinner_item, traitementDeFonds
+            )
+
+            spinnerTraitementDeFond.setSelection(adapter.getPosition(selectionTraitementDeFonds))
+
+
+
+        }
+       /* if (selectionTraitementDeFonds != null) {
+            val adapter = EditText(
+                this,
+                android.R.layout.editTextObservations, observations
+            )
+        }*/
+
+
         fun callActivity() {
             val observation = observations.text
             val envoyerIntent: Intent = Intent(this, Confirmer::class.java).also {

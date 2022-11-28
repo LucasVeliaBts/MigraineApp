@@ -110,7 +110,7 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner_AINS" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewObservation"
         android:layout_width="411dp"
         android:layout_height="22dp"
         android:layout_marginTop="48dp"
@@ -129,7 +129,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textViewObservation"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
