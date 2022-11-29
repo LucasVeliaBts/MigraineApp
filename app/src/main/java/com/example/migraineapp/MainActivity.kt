@@ -2,6 +2,7 @@ package com.example.migraineapp
 
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -17,17 +18,22 @@ const val EXTRA_TRAITEMENTDEFONDS = "com.example.migraineapp.TRAITEMENTDEFONDS";
 const val EXTRA_OBSERVATIONS = "com.example.migraineapp.OBSERVATIONS";
 const val EXTRA_DATE = "com.example.migraineapp.DATE";
 
-const val EXTRA_INTENSITE_NB = "com.example.migraineapp.INTENSITE_NB";
-const val EXTRA_AINS_NB = "com.example.migraineapp.AINS_NB";
-const val EXTRA_TRIPTANS_NB = "com.example.migraineapp.TRIPTANS_NB";
-const val EXTRA_TRAITEMENTDEFONDS_NB = "com.example.migraineapp.TRAITEMENTDEFONDS_NB";
-const val EXTRA_OBSERVATIONS_NB = "com.example.migraineapp.OBSERVATIONS_NB";
+
+const val PREF_INTENSITE="com.rb.agenda.migraine.preferences"
+const val PREF_AINS="com.rb.agenda.migraine.preferences"
+const val PREF_TRIPTANS="com.rb.agenda.migraine.preferences"
+const val PREF_TRIATEMENTDEFONDS="com.rb.agenda.migraine.preferences"
+const val PREF_OBSERVATIONS="com.rb.agenda.migraine.preferences"
+
+
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     lateinit var boutonEnvoyer: Button
     lateinit var dpd: DatePickerDialog
+    lateinit var  sharedPreferences : SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -245,6 +251,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         boutonEnvoyer.setOnClickListener{
+
             callActivity()
         }
     }

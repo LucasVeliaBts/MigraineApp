@@ -33,9 +33,9 @@
 
     <TextView
         android:id="@+id/textViewObservationsSelection"
-        android:layout_width="209dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="204dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="60dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -47,7 +47,7 @@
         android:id="@+id/textViewTriptansSelection"
         android:layout_width="209dp"
         android:layout_height="29dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="12dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -59,12 +59,12 @@
         android:id="@+id/textViewAINSSelection"
         android:layout_width="210dp"
         android:layout_height="32dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="12dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/txtViewAINS"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTraitementDeFondSelection"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewTypeDeTraitementSelection"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -83,11 +83,11 @@
         android:id="@+id/txtViewTriptans"
         android:layout_width="177dp"
         android:layout_height="31dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:text="Triptans:"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.034"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewAINS"></TextView>
 
@@ -95,25 +95,23 @@
         android:id="@+id/txtViewAINS"
         android:layout_width="177dp"
         android:layout_height="34dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
         android:text="AINS :"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewTraitementDeFond"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/txtViewTypeDeTraitementSelection"></TextView>
 
     <TextView
         android:id="@+id/txtViewTraitementDeFond"
         android:layout_width="177dp"
         android:layout_height="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:text="Traitement de fond:"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewTypeDeTraitementSelection"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/txtViewTriptans"></TextView>
 
     <TextView
         android:id="@+id/txtViewIntensite"
@@ -145,7 +143,8 @@
         android:id="@+id/textViewObservations"
         android:layout_width="177dp"
         android:layout_height="28dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
         android:text="Observations:"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -155,12 +154,13 @@
         android:id="@+id/textViewTraitementDeFondSelection"
         android:layout_width="208dp"
         android:layout_height="36dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/txtViewTraitementDeFond"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewTypeDeTraitementSelection"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTriptansSelection"
         tools:ignore="MissingConstraints" />
 
     <TextView
