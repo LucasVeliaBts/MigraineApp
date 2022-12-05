@@ -17,6 +17,7 @@ const val EXTRA_TRIPTANS = "com.example.migraineapp.TRIPTANS";
 const val EXTRA_TRAITEMENTDEFONDS = "com.example.migraineapp.TRAITEMENTDEFONDS";
 const val EXTRA_OBSERVATIONS = "com.example.migraineapp.OBSERVATIONS";
 const val EXTRA_DATE = "com.example.migraineapp.DATE";
+const val EXTRA_CRISE = "com.example.migraineapp.CRISE";
 
 
 const val PREF_INTENSITE="com.rb.agenda.migraine.preferences"
@@ -65,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         val selectionTraitementDeFonds = intent.getStringExtra("EXTRA_TRAITEMENTDEFONDS")
         val selectionObservation = intent.getStringExtra("EXTRA_OBSERVATIONS")
 
-
+        var criseEnvoyer : Crise
 
         dateButton.setOnClickListener {
 
@@ -239,14 +240,27 @@ class MainActivity : AppCompatActivity() {
 
 
         fun callActivity() {
-            val observation = observations.text
-            val envoyerIntent: Intent = Intent(this, Confirmer::class.java).also {
-                it.putExtra("EXTRA_OBSERVATIONS",observation.toString())
+           // val observation = observations.text
+            val criseEnvoyer = Crise(
+                1,
+
+                date.text.toString(),
+                spinnerIntensities.getSelectedItem().toString(),
+                spinnerAINS.getSelectedItem().toString(),
+                spinnerTriptans.getSelectedItem().toString(),
+                spinnerTraitementDeFond.getSelectedItem().toString(),
+                observations.text.toString()
+            )
+            val envoyerIntent: Intent = Intent(this, ConfirmerActivity::class.java).also {
+               /* it.putExtra("EXTRA_OBSERVATIONS",observation.toString())
                 it.putExtra("EXTRA_INTENSITE",spinnerIntensities.getSelectedItem().toString())
                 it.putExtra("EXTRA_AINS",spinnerAINS.getSelectedItem().toString())
                 it.putExtra("EXTRA_TRIPTANS",spinnerTriptans.getSelectedItem().toString())
                 it.putExtra("EXTRA_TRAITEMENTDEFONDS",spinnerTraitementDeFond.getSelectedItem().toString())
-                it.putExtra("EXTRA_DATE",date.text.toString())
+                it.putExtra("EXTRA_DATE",date.text.toString()) */
+
+
+                it.putExtra(EXTRA_CRISE,criseEnvoyer)
                 startActivity(it)
             }
         }

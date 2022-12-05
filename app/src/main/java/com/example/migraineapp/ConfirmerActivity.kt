@@ -1,18 +1,17 @@
 package com.example.migraineapp
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
-class Confirmer : AppCompatActivity() {
+class ConfirmerActivity : AppCompatActivity() {
 
     lateinit var bouttonModifier : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_confirmer)
 
-        val selectionDate = intent.getStringExtra("EXTRA_DATE")
+        /*val selectionDate = intent.getStringExtra("EXTRA_DATE")
         val selectionIntensite = intent.getStringExtra("EXTRA_INTENSITE")
         val selectionAINS = intent.getStringExtra("EXTRA_AINS")
         val selectionTriptans = intent.getStringExtra("EXTRA_TRIPTANS")
@@ -44,7 +43,7 @@ class Confirmer : AppCompatActivity() {
         val observation = findViewById<TextView>(R.id.textViewObservationsSelection).apply {
             text = selectionObservation
         }
-
+*/
 
         bouttonModifier = findViewById(R.id.buttonModifier)
 
