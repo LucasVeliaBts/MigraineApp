@@ -1,7 +1,7 @@
-#Migrainne App
+# Migrainne App
 Migrainne App est une application Android développée en Kotlin sur Android Studio pour aider les patients atteints de migraines à suivre leur régime médicamenteux. L'application permet aux patients d'enregistrer des informations sur leurs migraines, leurs médicaments et leur état général, qui sont ensuite stockées dans une base de données pour une analyse ultérieure.
 
-##Fonctionnalités
+## Fonctionnalités
 L'application Migrainne offre les fonctionnalités suivantes :
 
 ° Enregistrement des migraines : Les patients peuvent enregistrer les détails de leurs migraines, tels que l'intensité, la durée et les symptômes associés.
